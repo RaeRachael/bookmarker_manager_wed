@@ -1,5 +1,6 @@
 require 'bookmarks'
 
+
 describe Bookmark do
 
   describe ".all method" do
