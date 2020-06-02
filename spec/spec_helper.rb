@@ -1,4 +1,4 @@
-ENV['RACK_ENV'] = 'bookmark_manager_test'
+ENV['ENVIRONMENT'] = 'test'
 
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
