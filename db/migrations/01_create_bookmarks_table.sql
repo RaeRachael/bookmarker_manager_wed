@@ -1,0 +1,1 @@
+CREATE TABLE bookmarks(id SERIAL RRIMARY KEY, url VARCHAR(60));
