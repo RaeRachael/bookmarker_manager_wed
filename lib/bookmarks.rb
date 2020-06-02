@@ -4,15 +4,13 @@ class Bookmark
 
   def self.all
     if ENV['ENVIRONMENT'] == 'test'
-      con = PG.connect :dbname => 'bookmark_manager_test'
+      connection = PG.connect :dbname => 'bookmark_manager_test'
     else
-      con = PG.connect :dbname => 'bookmark_manager'
+      connection = PG.connect :dbname => 'bookmark_manager'
     end
 
-      rs = con.exec "SELECT url FROM bookmarks"
+      rs = connection.exec "SELECT url FROM bookmarks"
 
       rs.map { |bookmark| bookmark['url'] }
-
   end
-
 end
