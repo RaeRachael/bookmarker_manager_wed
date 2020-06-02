@@ -1,9 +1,8 @@
-class BookmarkList
+class Bookmark
 
-  LIST = ["google", "BBC", "pepperpig"]
-
-  def show
-    LIST
+  def self.all
+["http://www.google.com",
+"http://www.facebook.com"]
   end
 
 end

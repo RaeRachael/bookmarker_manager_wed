@@ -1,10 +1,15 @@
 require 'bookmarks'
 
-describe BookmarkList do
+describe Bookmark do
 
-subject(:bookmarkList) { described_class.new }
+  describe ".all method" do
 
-xit "shows the user all of their bookmarks" do
-  expect(bookmarkList.show).to include "google"
-end
+    it "return all the bookmarks" do
+      list = Bookmark.all
+      expect(list).to include "http://www.google.com"
+      expect(list).to include "http://www.facebook.com"
+    end
+
+  end
+
 end
