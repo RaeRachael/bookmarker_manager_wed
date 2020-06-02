@@ -7,6 +7,7 @@ class BookmarkManager < Sinatra::Base
     end
 
     get '/bookmarks' do
+      @bookmark = ["http://www.google.com", "http://www.facebook.com"]
       erb :viewing_bookmarks
     end
 
