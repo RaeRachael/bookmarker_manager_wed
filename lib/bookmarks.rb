@@ -11,7 +11,7 @@ class Bookmark
 
       rs = connection.exec "SELECT url FROM bookmarks"
 
-      rs.map { |bookmark| bookmark['url'] }
+      rs.map { |bookmark| ['url'] }
   end
 
   def self.create(url, title)
