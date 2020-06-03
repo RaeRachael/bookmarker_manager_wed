@@ -6,8 +6,8 @@ def setup_test_database
   #clear the bookmarks table
   connection.exec("TRUNCATE bookmarks;")
 
-  connection.exec("INSERT INTO bookmarks (url) VALUES ('http://www.makersacademy.com');")
-  connection.exec("INSERT INTO bookmarks (url) VALUES('http://www.destroyallsoftware.com');")
-  connection.exec("INSERT INTO bookmarks (url) VALUES('http://www.google.com');")
+  connection.exec("INSERT INTO bookmarks (url, title) VALUES ('http://www.makersacademy.com', 'Makers Academy');")
+  connection.exec("INSERT INTO bookmarks (url, title) VALUES('http://www.destroyallsoftware.com', 'Destroy All Software');")
+  connection.exec("INSERT INTO bookmarks (url, title) VALUES('http://www.google.com', 'Google');")
 
 end
