@@ -26,3 +26,5 @@ class Bookmark
 
   end
 end
+
+## connection.exec "DELETE FROM bookmarks WHERE title = #{argument}" IDEA FOR DELETE METHOD
