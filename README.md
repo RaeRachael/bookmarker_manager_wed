@@ -33,3 +33,22 @@ Diagram code:
 2. Create the database using psql command: CREATE DATABASE bookmark_manager_test;
 3. Connect to the database using the psql command \c bookmark_manager_test;
 4. Run the query we have saved in the file 01_create_bookmarks_table.sql
+
+## User story 2
+
+adding a bookmark.
+
+As a user,
+So I can add bookmarks to my list
+I would like a form to submit new bookmarks
+
+feature test:
+
+scenario - in /bookmarks there will be a form to add new bookmarks, GET info for
+new bookmark, POST back into /bookmarks
+
+add to the controller - GET request for form, POST to display the new bookmarks.
+
+rspec - for new .create method.
+
+model - create a .create method for adding bookmarks (links to database)
