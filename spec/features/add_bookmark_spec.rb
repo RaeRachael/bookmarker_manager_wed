@@ -6,5 +6,6 @@ feature '/add_bookmark' do
     fill_in('title', :with => 'facebook')
     click_button('Submit')
     expect(page).to have_content('facebook')
+    expect(page).to have_link('face', href: 'www.facebook.com')
   end
 end
