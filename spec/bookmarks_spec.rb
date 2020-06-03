@@ -15,7 +15,7 @@ describe Bookmark do
 
   describe '#create' do
     it 'should add data to the database' do
-      Bookmark.create("www.facebook.com")
+      Bookmark.create("www.facebook.com", 'facebook')
       expect(Bookmark.all).to include('www.facebook.com')
     end
   end
