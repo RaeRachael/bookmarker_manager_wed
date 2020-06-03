@@ -1,6 +1,7 @@
 require_relative './setup_test_database'
 
 ENV['ENVIRONMENT'] = 'test'
+ENV['RACK_ENV'] = 'test'
 
 
 
@@ -27,6 +28,8 @@ Capybara.app = BookmarkManager
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+
+  config.default_formatter = "doc"
 
   config.before(:each) do
     setup_test_database
