@@ -2,7 +2,7 @@ require 'pg'
 
 class Bookmark
 
-  attr_reader :url, :title
+  attr_reader :id, :url, :title
 
   def initialize(id, url, title)
     @id =id
