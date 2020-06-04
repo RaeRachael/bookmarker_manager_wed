@@ -32,6 +32,17 @@ class Bookmark
     connection.exec "INSERT INTO bookmarks(url, title) VALUES('#{url}', '#{title}')"
 
   end
+
+  def self.delete(id)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect :dbname => 'bookmark_manager_test'
+    else
+      connection = PG.connect :dbname => 'bookmark_manager'
+    end
+
+    connection.exec "DELETE FROM bookmarks WHERE id='#{id}'"
+  end
+
 end
 
 ## connection.exec "DELETE FROM bookmarks WHERE title = #{argument}" IDEA FOR DELETE METHOD

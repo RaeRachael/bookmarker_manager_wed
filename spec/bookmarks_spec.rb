@@ -20,4 +20,11 @@ describe Bookmark do
       expect(Bookmark.all[3].url).to include("www.facebook.com")
     end
   end
+
+  describe '#delete' do
+    it 'should delete data from the database' do
+      Bookmark.delete(1)
+      expect(Bookmark.all[0].title).to_not include("Makers Academy")
+    end
+  end
 end
