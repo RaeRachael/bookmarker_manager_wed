@@ -11,11 +11,7 @@ class Bookmark
   end
 
   def self.all
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect :dbname => 'bookmark_manager_test'
-    else
-      connection = PG.connect :dbname => 'bookmark_manager'
-    end
+    connection = select_database
 
       rs = connection.exec "SELECT id, title, url FROM bookmarks"
 
@@ -23,26 +19,24 @@ class Bookmark
   end
 
   def self.create(url, title)
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect :dbname => 'bookmark_manager_test'
-    else
-      connection = PG.connect :dbname => 'bookmark_manager'
-    end
+    connection = select_database
 
     connection.exec "INSERT INTO bookmarks(url, title) VALUES('#{url}', '#{title}')"
 
   end
 
   def self.delete(id)
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect :dbname => 'bookmark_manager_test'
-    else
-      connection = PG.connect :dbname => 'bookmark_manager'
-    end
+    connection = select_database
 
     connection.exec "DELETE FROM bookmarks WHERE id='#{id}'"
   end
 
-end
+  def self.select_database
+    if ENV['RACK_ENV'] == 'test'
+      PG.connect :dbname => 'bookmark_manager_test'
+    else
+      PG.connect :dbname => 'bookmark_manager'
+    end
+  end
 
-## connection.exec "DELETE FROM bookmarks WHERE title = #{argument}" IDEA FOR DELETE METHOD
+end
