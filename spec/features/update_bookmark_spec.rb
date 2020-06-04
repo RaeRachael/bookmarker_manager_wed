@@ -8,4 +8,12 @@ feature '/update_bookmark' do
       expect(page).to have_content "not Makers Academy"
     end
   end
+
+  scenario 'prints error, invalid URL' do
+    visit('/bookmarks')
+    find('#update1').click
+    fill_in('url', :with => 'not a url')
+    click_button("Submit")
+    expect(page).to have_content "Error, that is not a valid URL"
+  end
 end

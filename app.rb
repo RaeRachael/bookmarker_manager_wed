@@ -18,6 +18,8 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/added_bookmark' do
+    # check URL against a REGEX (Bookmark.valid(params[:url]))
+    #  redirect '/add_bookmark' if error triggered
     Bookmark.create(params[:bookmark], params[:title])
     redirect '/bookmarks'
   end
@@ -33,6 +35,8 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/updated_bookmark' do
+    # check URL against a REGEX (Bookmark.valid(params[:url]))
+    #  redirect '/update_bookmark' if error triggered
     Bookmark.update(params[:id], params[:url], params[:title])
     redirect '/bookmarks'
   end
