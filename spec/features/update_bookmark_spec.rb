@@ -1,6 +1,6 @@
 feature '/update_bookmark' do
   feature 'update button' do
-    xscenario 'update a bookmark' do
+    scenario 'update a bookmark' do
       visit('/bookmarks')
       find('#update1').click
       fill_in('title', :with => 'not Makers Academy')

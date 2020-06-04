@@ -1,5 +1,6 @@
 <form action="/updated_bookmark", method="post">
+  <input type=hidden name="id" value="<%= @bookmark[0].id %>">
   <input type="text" name="url" value="<%= @bookmark[0].url %>">
-  <input type="text" name="title" placeholder="<%= @bookmark[0].title %>">
+  <input type="text" name="title" value="<%= @bookmark[0].title %>">
   <input type="submit" value="Submit">
 </form>
