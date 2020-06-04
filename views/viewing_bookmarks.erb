@@ -3,7 +3,11 @@
   <li> <a href=<%=bookmark.url%> > <%=bookmark.title%> </a>
   <form action='/delete_bookmark' method='post'>
     <input type=hidden name=id value='<%=bookmark.id%>'>
-    <input type='submit' name='delete' id='<%=bookmark.id%>' value="delete">
+    <input type='submit' name='delete' id='delete<%=bookmark.id%>' value="delete">
+  </form>
+  <form action='/update_bookmark' method='post'>
+    <input type=hidden name=id value='<%=bookmark.id%>'>
+    <input type='submit' name='update' id='update<%=bookmark.id%>' value="update">
   </form></li>
   <% end %>
 </ul>

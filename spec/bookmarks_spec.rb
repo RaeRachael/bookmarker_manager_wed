@@ -27,4 +27,13 @@ describe Bookmark do
       expect(Bookmark.all[0].title).to_not include("Makers Academy")
     end
   end
+
+  describe '#update(id, url, title)' do
+    it 'should update the correct bookmark'do
+      Bookmark.update(1, 'http://www.makersacademy.com', 'not the title')
+      bookmark = Bookmark.all.select { |bookmark| bookmark.id == '1' }
+      expect(bookmark[0].title).to include('not the title')
+    end
+
+  end
 end
