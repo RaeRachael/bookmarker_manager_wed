@@ -11,39 +11,21 @@ class Bookmark
   end
 
   def self.all
-    connection = select_database
+    rs = DatabaseConnection.query( "SELECT id, title, url FROM bookmarks" )
 
-      rs = connection.exec "SELECT id, title, url FROM bookmarks"
-
-      rs.map { |bookmark| Bookmark.new(bookmark['id'], bookmark['url'], bookmark['title']) }
+    rs.map { |bookmark| Bookmark.new(bookmark['id'], bookmark['url'], bookmark['title']) }
   end
 
   def self.create(url, title)
-    connection = select_database
-
-    connection.exec "INSERT INTO bookmarks(url, title) VALUES('#{url}', '#{title}')"
-
+    DatabaseConnection.query( "INSERT INTO bookmarks(url, title) VALUES('#{url}', '#{title}')" )
   end
 
   def self.delete(id)
-    connection = select_database
-
-    connection.exec "DELETE FROM bookmarks WHERE id='#{id}'"
+    DatabaseConnection.query( "DELETE FROM bookmarks WHERE id='#{id}'" )
   end
 
   def self.update(id, url, title)
-    connection = select_database
-
-    connection.exec "UPDATE bookmarks SET url = '#{url}', title = '#{title}' WHERE id ='#{id}'"
-
-  end
-
-  def self.select_database
-    if ENV['RACK_ENV'] == 'test'
-      PG.connect :dbname => 'bookmark_manager_test'
-    else
-      PG.connect :dbname => 'bookmark_manager'
-    end
+    DatabaseConnection.query( "UPDATE bookmarks SET url = '#{url}', title = '#{title}' WHERE id ='#{id}'" )
   end
 
 end
