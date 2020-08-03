@@ -1,5 +1,11 @@
 # bookmark-manager
-pairing with Minsi
+
+### Week 4 Afternoon Task - Main Aims
+
+* Learn about Databases
+* Link a Database to a web app
+
+
 
 Show a list of bookmarks
 Add new bookmarks
